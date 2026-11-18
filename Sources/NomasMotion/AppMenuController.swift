@@ -491,11 +491,11 @@ final class AppMenuController {
     private static func makeStatusIcon(active: Bool) -> NSImage {
         let image = NSImage(size: NSSize(width: 18, height: 18))
         image.lockFocus()
-        let activeAlpha = active ? 0.95 : 0.34
-        let inactiveAlpha = active ? 0.30 : 0.14
+        let railAlpha = 1.0
+        let centerAlpha = active ? 0.30 : 0.14
         for column in 0..<5 {
             let isRail = column == 0 || column == 4
-            NSColor.black.withAlphaComponent(isRail ? activeAlpha : inactiveAlpha).setFill()
+            NSColor.black.withAlphaComponent(isRail ? railAlpha : centerAlpha).setFill()
             for row in 0..<4 {
                 let x = 3.0 + Double(column) * 3.0
                 let y = 4.0 + Double(row) * 3.2
